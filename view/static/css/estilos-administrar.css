@@ -1,0 +1,9 @@
+.bienvenida{
+    color: var(--color3);
+    font-size: 2.3rem;
+    text-align: center;
+}
+
+.bienvenida span{
+    color: var(--color4);
+}

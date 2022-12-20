@@ -1,0 +1,106 @@
+.main-title{
+    font-size: 3rem;
+    color: aliceblue;
+    font-family: var(--font3);
+}
+body{
+    overflow-x: hidden;
+}
+.main-container{
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(blueviolet 10%, rgba(0, 0, 0, 0.724)), url("../img/banner-princiopal.jpg") ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.text-container{
+    position: relative;
+    height: 4.5rem;
+}
+
+.icon-move{
+    position: absolute;
+    font-weight: bold;
+    font-size: 3rem;
+    top: -1.4rem;
+    left: -1.4rem;
+}
+
+.circle{
+    width: 50%;
+    position: absolute;
+    height: 100%;
+    border-radius: 50%;
+    left: 0%;
+    top: 0;
+    opacity: 0;
+    animation: infinity ease-in-out infinite 3.5s, hola ease-in-out forwards 0.5s;
+}
+
+@keyframes hola {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.circle span{
+    background: rgb(43,129,181);
+    background: radial-gradient(circle, rgba(43,129,181,1) 0%, rgba(117,213,191,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    stroke: 1px black;
+}
+
+.two{
+    animation: infinity ease-in-out infinite 3.5s 0.6s, hola forwards ease-in-out 0.5s 0.6s;
+}
+.three{
+    animation: infinity ease-in-out infinite 3.5s 1.2s, hola forwards ease-in-out 0.5s 1.2s;
+}
+.four{
+    animation: infinity ease-in-out infinite 3.5s 1.8s, hola forwards ease-in-out 0.5s 1.8s;
+}
+.five{
+    animation: infinity ease-in-out infinite 3.5s 2.4s, hola forwards ease-in-out 0.5s 2.4s;
+}
+
+@keyframes infinity{
+    
+    0%{
+        transform: rotate(0);
+        left: 0%;
+    }
+    20%{
+        transform: rotate(-28deg);
+        left: 50%;
+    }
+    40%{
+        transform: rotate(0deg);
+        left: 100%;
+    }
+    60%{
+        transform: rotate(-30deg);
+        left: 100%;
+    }
+    80%{
+        transform: rotate(-0deg);
+        left: 50%;
+    }
+    90%{
+        transform: rotate(-20deg);
+        left: 0%;
+    }
+    100%{
+        transform: rotate(0);
+        left: 0%;
+    }
+}

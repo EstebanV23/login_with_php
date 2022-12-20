@@ -1,0 +1,42 @@
+nav{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blueviolet;
+}
+
+a{
+    color: aliceblue;
+    transition: color .5s ease-in-out;
+    padding: 0.5rem 1rem;
+}
+
+.icon-animation{
+    position: relative;
+}
+
+.icon-animation:hover > a{
+    position: relative;
+    color: aqua;
+}
+
+.icon-animation span{
+    position: absolute;
+    left: 34%;
+    font-size: 2rem;
+    font-weight: bold;
+    background: rgb(0,187,141);
+    background: linear-gradient(90deg, rgba(0,187,141,1) 0%, rgba(129,255,0,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateY(1rem) rotate(180deg);
+    opacity: 0;
+    transition: transform 1s, opacity 0.5s ease-in-out;
+}
+
+.icon-animation a:hover ~ span, .icon-animation span:hover{
+    opacity: 1;
+    transform: translateY(3rem) rotate(0deg);
+}
+

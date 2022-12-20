@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Variables de colores */
+:root{
+    --color1: #f1d170;
+    --color2: #f1e193;
+    --color3: #122477;
+    --color4: #1d74bb;
+    --color5: #8adbe5;
+}
+/* Minima normalizacion para empezar */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.error{
+    color: rgb(136, 4, 4);
+    font-weight: 600;
+}
+
+.realizado{
+    color: rgb(1, 97, 1);
+    font-weight: 600;
+}
+
+/* Estilos para la navegacion */
+.navegacion{
+    padding: 1rem;
+    background: var(--color4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navegacion-contenido{
+    display: flex;
+    gap: 1.3rem;
+}
+
+.navegacion-contenido > a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.3rem;
+    border-bottom: 1px solid transparent;
+    display: inline-block;
+    padding: 0.5rem 0rem;
+    transition: border 0.7s, padding 0.3s, font-weight 0.2s, color 0.3s ease-in-out;
+}
+
+.navegacion-contenido > a:hover{
+    border-bottom: 1px solid #bbd2c5;
+    color: var(--color1);
+    font-weight: 700;
+    padding: 0.5rem 1.4rem;
+}
+/* Fin de los estilos para la navegacion */

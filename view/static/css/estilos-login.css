@@ -1,0 +1,192 @@
+/* Background de toda la pagina */
+.background-principal{
+    background: rgb(187,210,197);
+    background: linear-gradient(0deg, rgba(24, 31, 26, 0.438) 0%, rgba(83, 105, 118, 0.452) 50%, var(--color4) 85%), url('../img/banner-principal.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #fff;
+    min-height: 100vh;
+    width: 100%;
+}
+/* Fin del background principal */
+
+/* Estilos para centrar */
+
+.centrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 73px);
+}
+
+/* Fin de estilos para centrar */
+
+/* Estilos para contenedor genral de la informacion */
+.contenedor-info{ 
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.33);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.9px);
+    -webkit-backdrop-filter: blur(6.9px);
+    width: 74vw;
+    max-width: 700px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.info-top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.top-imagen{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.5);
+}
+
+.top-imagen > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.top-subtitulo{
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+.info-bottom{
+    width: 100%;
+}
+
+/* Estilos para el formulario */
+
+.bottom-formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.formulario-contenedor{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.formulario-contenedor > label{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color1);
+}
+
+.formulario-contenedor > input{
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: none;
+}
+
+.formulario-contenedor > i{
+    position: absolute;
+    top: 2.2rem;
+    left: 6px;
+    font-size: 1.9rem;
+}
+
+.botones-enviar{
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: var(--color1);
+    color: var(--color4);
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: all 0.7s ease-in-out;
+}
+.botones-enviar:hover{
+    background-color: var(--color4);
+    color: var(--color1);
+}
+
+.link-password{
+    text-decoration: none;
+    color: var(--color5);
+    font-size: 1.3rem;
+    transition: color 0.3s ease-in-out;
+    font-weight: 600;
+}
+.link-password:hover{
+    color: var(--color1);
+}
+
+.links-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap-reverse;
+}
+
+#visibilidad{
+    position: absolute;
+    top: 2.4rem;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Fin estilos para el formulario */
+
+/* Fin de los estilos generales para el contendio general de info */
+
+/* Media query para pantallas de hasta 768px */
+
+@media (max-width: 768px) {
+    /* Estilos para contenedor genral de la informacion */
+
+    .contenedor-info{
+        max-width: 95vw;
+    }
+
+    /* Fin de los estilos generales para el contendio general de info */
+}
+
+/* Fin media query de 768px */
+
+/* Media query para pantallas de hasta 600px */
+
+@media (max-width: 600px) {
+    /* Estilos para contenedor genral de la informacion */
+
+    .contenedor-info{
+        width: 95vw;
+    }
+
+    .formulario-contenedor{
+        width: 100%;
+    }
+
+    /* Fin de los estilos generales para el contendio general de info */
+}
+
+/* Fin media query de 768px */

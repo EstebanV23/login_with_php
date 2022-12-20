@@ -1,0 +1,120 @@
+
+/* Convirtiendo al padre en relative */
+
+.contenedor-info{
+    position: relative;
+}
+
+/* Estilos para la flecha volver */
+
+.info-volver{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--color2);
+    text-decoration: none;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s ease-in-out;
+}
+
+.info-volver p, .info-volver i{
+    font-weight: bold;
+}
+
+.info-volver p{
+    font-size: 1.15rem;
+    transition: color 0.6s ease-in-out;
+}
+
+.info-volver:hover > p{
+    color: var(--color5);
+}
+
+.info-volver:hover{
+    border-bottom: 1px solid var(--color2);
+}
+
+.linea{
+    display: flex;
+    flex-direction: row;
+}
+
+.linea > button{
+    width: 50%;
+}
+
+.borrar{
+    background-color: rgb(206, 61, 61);
+    color: var(--color2);
+}
+
+.borrar:hover{
+    color: rgb(206, 61, 61);
+    background-color: var(--color2);
+}
+
+/* Estilos para el modal */
+
+.fondo-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.445);
+    transition: opacity 0.8s ease-in-out;
+}
+
+.modal{
+    padding: 2rem 4rem;
+    background-color: white;
+    color: var(--color4);
+    width: 75%;
+    border-radius: 3rem;
+    text-align: center;
+    z-index: 3;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.modal h2{
+    font-size: 1.8rem;
+}
+
+.abrir-modal{
+    animation: mostrar 0.3s ease-in-out forwards;
+}
+
+.cerrar-modal{
+    animation: ocultar 0.3s ease-in-out forwards;
+}
+
+@keyframes mostrar {
+    0%{
+        opacity: 0;
+        left: 100%;
+    }
+    100%{
+        opacity: 1;
+        left: 0%;
+    }
+}
+
+@keyframes ocultar {
+    0%{
+        opacity: 1;
+        left: 0%;
+    }
+    100%{
+        opacity: 0;
+        left: 100%;
+    }
+}
