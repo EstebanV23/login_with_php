@@ -1,7 +1,6 @@
 <?php
 
-class Usuario
-{
+class Usuario{
     protected $id;
     protected $nombre;
     protected $apellido;
@@ -29,8 +28,7 @@ class Usuario
         return "Nombre: $this->nombre Apellido: $this->apellido Email: $this->email Username: $this->username";
     }
 
-    public function getId()
-    {
+    public function getId(){
         return $this->id;
     }
 
@@ -39,8 +37,7 @@ class Usuario
         $this->id = $id;
     }
 
-    public function getNombre()
-    {
+    public function getNombre(){
         return $this->nombre;
     }
 

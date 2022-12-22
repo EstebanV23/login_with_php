@@ -7,3 +7,81 @@
 .bienvenida span{
     color: var(--color4);
 }
+
+.tabla-general{
+    width: 80%;
+    min-width: 500px;
+    margin: auto;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.tabla-general th{
+    text-align: start;
+}
+
+.tabla-general tr{
+    border-bottom: 1px solid #25252575;
+}
+
+.tabla-general td, .tabla-general th{
+    padding: 1rem;
+}
+
+.centrar-texto{
+    color: rgb(117, 2, 2);
+    text-align: center;
+}
+
+.botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.update{
+    text-decoration: none;
+    color: var(--color3);
+    transition: 0.3s color ease-in-out;
+}
+
+.update:hover{
+    color: var(--color5);
+}
+
+.delete{
+    text-decoration: none;
+    color: rgb(104, 6, 6);
+    transition: 0.3s color ease-in-out;
+}
+
+.delete:hover{
+    color: red;
+}
+
+.creacion-de-usuario{
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.creacion-de-usuario a{
+    text-decoration: none;
+    color: var(--color3);
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color2);
+    border-radius: 0.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.creacion-de-usuario a:hover{
+    color: var(--color2);
+    background-color: var(--color4);
+    border-radius: 2rem;
+}

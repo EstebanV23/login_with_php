@@ -26,7 +26,7 @@ $mensaje_password = $_GET['mensaje_password'] ?? '';
 </head>
 <body class="background-principal">
     
-    <?php include_once 'cabecero.php'; ?>
+    <?php include 'cabecero.php'; ?>
 
     <!-- Contenido principal con toda la info -->
     <main class="centrar">
@@ -80,6 +80,7 @@ $mensaje_password = $_GET['mensaje_password'] ?? '';
     <footer>
 
     </footer>
+    <script src="../static/js/funciones-validar.js"></script>
     <script src="../static/js/validaciones.js"></script>
 </body>
 </html>

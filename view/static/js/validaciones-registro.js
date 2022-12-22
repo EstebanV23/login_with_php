@@ -9,39 +9,6 @@ let mensajeEmail = document.getElementById("mensajeEmail");
 let registro = document.getElementById("registro");
 let borrar = document.getElementById("borrar");
 
-const patronEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
-
-const validarEmail = (elemento, espacioMensaje, mensajePositivo, mensajeNegativo) =>
-{
-    elemento.value = elemento.value.trim();
-    if(patronEmail.test(elemento.value) && !espaciosBlancos.test(elemento.value))
-    {
-        espacioMensaje.innerHTML = mensajePositivo;
-        espacioMensaje.setAttribute("class", "realizado");
-        return true;
-    }else
-    {
-        espacioMensaje.innerHTML = mensajeNegativo;
-        espacioMensaje.setAttribute("class", "error");
-    }
-    return false;
-}
-
-const validarConfirmarPassword = (passwordPrincipal, passwordConfirmar, espacioMensaje, mensajePositivo, mensajeNegativo) =>
-{
-    if(passwordPrincipal.value === passwordConfirmar.value)
-    {
-        espacioMensaje.innerHTML = mensajePositivo;
-        espacioMensaje.setAttribute("class", "realizado");
-        return true;
-    }else
-    {
-        espacioMensaje.innerHTML = mensajeNegativo;
-        espacioMensaje.setAttribute("class", "error");
-    }
-    return false;
-}
-
 const validacionNombre = () => validarTexto(nombre, mensajeNombre, "Campo Correcto", "Valores no válidos");
 
 const validacionApellido = () => validarTexto(apellido, mensajeApellido, "Campo Correcto", "Valores no válidos");
@@ -68,13 +35,6 @@ email.addEventListener("input", ()=>
 function validarRegistro()
 {
     (validacionNombre() && validacionApellido() && validacionEmail() && validacionUsername() && validacionPassword() && validacionIgualPassword()) ? registro.type = "submit" : registro.type = "button";
-}
-
-function limpiar(...props)
-{
-    props.forEach(prop => {
-        prop.innerHTML = "";
-    })
 }
 
 borrar.addEventListener("click", () =>{

@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 session_start();
 /* traer nuestros helpers para validaciones */
 require_once "../helpers/validaciones.php";
@@ -29,6 +30,7 @@ if($entradas_con_datos && isset($_POST['envio'])){
         if($password === $datos_user['usu_pas']){
             $_SESSION['username'] = $username;
             $_SESSION['rol'] = $datos_user['usu_rol_id'];
+            $_SESSION['estado'] = $datos_user['usu_est'];
             header("Location: ../view/templates/home.php");
         }else{
             redireccionar($ruta_login, "", "Contraseña incorrecta");

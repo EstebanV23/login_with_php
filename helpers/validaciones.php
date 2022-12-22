@@ -4,7 +4,7 @@ class Validaciones
 {
     public function __construct(){}
     //Funcion para validar las entradas, que estén definidas y que contengan datos
-    public function validarEntradas(...$elementos)
+    public function validarEntradas(...$elementos) : bool
     {
         /* Si durante el for, encuentra algún dato vacío o no definido, devuelve un false */
         foreach ($elementos as $elemento) 

@@ -16,7 +16,7 @@ session_start();
     <link rel="stylesheet" href="../static/css/normalize.css">
     <link rel="stylesheet" href="../static/css/estilos-generales.css">
     <link rel="stylesheet" href="../static/css/estilos-home.css">
-    <title>Login</title>
+    <title>Home</title>
 </head>
 <body>
     <?php include_once "./cabecero.php"; ?>

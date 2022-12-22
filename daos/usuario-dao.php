@@ -18,11 +18,22 @@ class UsuarioDao extends Connection
     }
 
     //Funcion para traer a todos los Usuarios
-    public function listar_all_users() : array
+    public function listar_usuarios_disponibles($rol = 1)
     {
-        $sql = mysqli_query($this->connected, "SELECT *  FROM tbl_usuario INNER JOIN tbl_rol ON tbl_usuario.usu_rol_id = tbl_rol.rol_id;");
+        $query = "SELECT *  FROM tbl_usuario INNER JOIN tbl_rol ON tbl_usuario.usu_rol_id = tbl_rol.rol_id WHERE usu_est = 1";
+
+        if($rol == 2){
+            $query = $query . " AND usu_rol_id != 2 AND usu_rol_id != 3";
+        }
+        
+        if ($rol == 3) {
+            $query = $query . " AND usu_rol_id != 3";
+        }
+
+        $sql = mysqli_query($this->connected, $query);
         //Retornamos la query para saber si retorna filas
         $lista_usuarios = [];
+        
         if($sql->num_rows > 0){
             while ($row = mysqli_fetch_array($sql)) {
                 $usuario = new Usuario(); //Creamos un nuevo objeto Usuario
@@ -33,6 +44,7 @@ class UsuarioDao extends Connection
                 $usuario->setEmail($row['usu_mai']);
                 $usuario->setUsername($row['usu_use']);
                 $usuario->setPassword($row['usu_pas']);
+                $usuario->setEstado($row['usu_est']);
                 $usuario->setRol($row['rol_nom']);
 
                 //Guardamos el objeto en el array para devolverlo
@@ -43,7 +55,6 @@ class UsuarioDao extends Connection
 
     }
 
-
     //Funcion para traer a solo un usuario por username
     public function listar_username_user(string $username)
     {
@@ -53,6 +64,60 @@ class UsuarioDao extends Connection
         //Retornamos la query para saber si retorna filas
         return $sql;
     }
-}
 
+    public function listar_usuario_por_id($id)
+    {
+        $query = "SELECT *  FROM tbl_usuario WHERE usu_id = $id";
+
+        $sql = mysqli_query($this->connected, $query);
+        //Retornamos la query para saber si retorna filas
+        $lista_usuarios = [];
+        
+        $usuario = new Usuario();
+         //Creamos un nuevo objeto Usuario
+        if($sql->num_rows > 0){
+            $row = mysqli_fetch_array($sql);
+
+            //En sus metodos set llenamos los valores para crear el objeto
+            $usuario->setId($row['usu_id']);
+            $usuario->setNombre($row['usu_nom']);
+            $usuario->setApellido($row['usu_ape']);
+            $usuario->setEmail($row['usu_mai']);
+            $usuario->setUsername($row['usu_use']);
+            $usuario->setPassword($row['usu_pas']);
+            $usuario->setEstado($row['usu_est']);
+            $usuario->setRol($row['usu_rol_id']);
+        }
+        return $usuario;
+
+    }
+    
+    public function desactivar_usuario($id){
+        $query = "UPDATE tbl_usuario SET usu_est = 0 WHERE usu_id = $id";
+        $sql = mysqli_query($this->connected, $query);
+        //Retornamos la query para saber si retorna filas
+        return $sql;
+    }
+
+    public function actualizar_usuario($nombre, $apellido, $email, $username, $rol, $id){
+        try {
+            $query = "UPDATE tbl_usuario SET usu_nom = '$nombre', usu_ape = '$apellido', usu_use = '$username', usu_mai = '$email', usu_rol_id = '$rol' WHERE usu_id = $id";
+            $sql = mysqli_query($this->connected, $query);
+        } catch (\Throwable $e) {
+            $sql = $e->getMessage();
+        }
+
+        return $sql;
+    }
+
+    public function agregar_usuario(Usuario $usuario){
+        try {
+            $query = "INSERT INTO tbl_usuario(usu_nom, usu_ape, usu_use, usu_pas, usu_mai, usu_rol_id) VALUES('{$usuario->getNombre()}', '{$usuario->getApellido()}', '{$usuario->getUsername()}', '{$usuario->getPassword()}', '{$usuario->getEmail()}', '{$usuario->getRol()}');";
+            $sql = mysqli_query($this->connected, $query);
+        } catch (\Throwable $e) {
+            $sql = $e->getMessage();
+        }
+        return $sql;
+    }
+}
 ?>

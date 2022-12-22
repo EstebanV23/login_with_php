@@ -1,13 +1,20 @@
 <?php
 
+include "../../helpers/validacion-administrador.php";
 include "../../helpers/validaciones.php";
+include "../../models/connection.php";
+include "../../models/rol.php";
+include "../../daos/rol-dao.php";
 
 $validacion = new Validaciones();
+$instancia_rol_dao = new RolDao();
 
 $mensaje = "none";
 $estado = "none";
 
 $existen_datos = $validacion->validarEntradas($_GET["estado"], $_GET["mensaje"]);
+
+$roles_disponibles = $instancia_rol_dao->listar_todos_roles_disponibles($_SESSION['rol']);
 
 if($existen_datos) 
 {
@@ -27,9 +34,10 @@ if($existen_datos)
     <link rel="stylesheet" href="../static/css/estilos-generales.css">
     <link rel="stylesheet" href="../static/css/estilos-login.css">
     <link rel="stylesheet" href="../static/css/estilos-registro.css">
-    <title>Registro</title>
+    <link rel="stylesheet" href="../static/css/estilos-agregar.css">
+    <title>Nuevo Usuario</title>
 </head>
-<body class="background-principal">
+<body>
     
     <?php include 'cabecero.php'; ?>
 
@@ -37,56 +45,55 @@ if($existen_datos)
     <main class="centrar">
         <!-- Contenedor de informacion general -->
         <div class="contenedor-info">
-            <!-- Contenido arriba con imagen y un subtitulo -->
-            <a href="login.php" class="info-volver">
-                <i class="material-symbols-outlined">arrow_back</i>
-                <p>Volver</p>
-            </a>
-            <div class="info-top">
-                <div class="top-imagen">
-                    <img src="../static/img/18961875.jpg" alt="Logo">
-                </div>
-                <h2 class="top-subtitulo">REGISTRO</h2>
-            </div>
-            <!-- Fin del contenido arriba -->
+            <h2 class="top-subtitulo">AGREGAR NUEVO USUARIO</h2>
 
             <!-- Contendio de abajo con el formulario -->
             <div class="info-bottom">
                 <!-- Formulario -->
-                <form action="../../controllers/registro-controller.php" method="POST" class="bottom-formulario">
-                    <!-- Contendor de inputs, estilos generales para todos -->
+                <form action="../../controllers/agregar-controller.php" method="POST" class="bottom-formulario">
+                    <!-- Contendor de input class="input"s, estilos generales para todos -->
                     <!-- NOMBRE-->
                     <div class="formulario-contenedor">
                         <label for="nombre">Nombre: </label>
-                        <input maxlength="49" autocomplete="off" type="text" name="nombre" id="nombre" placeholder="Mia Sofia" required>
+                        <input class="input" maxlength="49" autocomplete="off" type="text" name="nombre" id="nombre" placeholder="Mia Sofia" required>
                         <i class="material-symbols-outlined">person_4</i>
                         <p id="mensajeNombre"></p>
                     </div>
                     <!-- APELLIDO -->
                     <div class="formulario-contenedor">
                         <label for="apellido">Apellido: </label>
-                        <input maxlength="49" autocomplete="off" type="apellido" name="apellido" id="apellido" placeholder="Villamizar Zabala" required>
+                        <input class="input" maxlength="49" autocomplete="off" type="apellido" name="apellido" id="apellido" placeholder="Villamizar Zabala" required>
                         <i class="material-symbols-outlined">face</i>
                         <p id="mensajeApellido"></p>
                     </div>
                     <!-- APELLIDO -->
                     <div class="formulario-contenedor">
                         <label for="email">Email: </label>
-                        <input maxlength="99" autocomplete="off" type="text" name="email" id="email" placeholder="Ejemplo@correo.com" required>
+                        <input class="input" maxlength="99" autocomplete="off" type="text" name="email" id="email" placeholder="Ejemplo@correo.com" required>
                         <i class="material-symbols-outlined">mail</i>
+                        <p id="mensajeEmail"></p>
+                    </div>
+                    <div class="formulario-contenedor">
+                        <label for="rol">Rol: </label>
+                        <select name="rol" id="rol">
+                            <?php foreach($roles_disponibles as $rol): ?>
+                                <option value="<?= $rol->getId(); ?>"><?= $rol->getNombre(); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <i class="material-symbols-outlined">bolt</i>
                         <p id="mensajeEmail"></p>
                     </div>
                     <!-- NOMBRE DE USUARIO -->
                     <div class="formulario-contenedor">
                         <label for="username">Nombre de usuario: </label>
-                        <input maxlength="49" autocomplete="off" type="text" name="username" id="username" placeholder="Ejemplo: MiaGamer04" required>
+                        <input class="input" maxlength="49" autocomplete="off" type="text" name="username" id="username" placeholder="Ejemplo: MiaGamer04" required>
                         <i class="material-symbols-outlined">stadia_controller</i>
                         <p id="mensajeUsername"></p>
                     </div>
                     <!-- CONTRASEÑA -->
                     <div class="formulario-contenedor">
                         <label for="password">Contraseña: </label>
-                        <input maxlength="49" autocomplete="off" type="password" name="password" id="password" placeholder="Micontraseña32?!" required>
+                        <input class="input" maxlength="49" autocomplete="off" type="password" name="password" id="password" placeholder="Micontraseña32?!" required>
                         <i class="material-symbols-outlined">lock</i>
                         <span class="material-symbols-outlined" id="visibilidad">visibility</span>
                         <p id="mensajePassword"></p>
@@ -94,15 +101,15 @@ if($existen_datos)
                     <!-- CONTRASEÑA CONFIRMACION -->
                     <div class="formulario-contenedor">
                         <label for="passwordConfirmada">Confirmar Contraseña: </label>
-                        <input maxlength="49" autocomplete="off" type="password" id="passwordConfirmada" placeholder="Micontraseña32?!" required>
+                        <input class="input" maxlength="49" autocomplete="off" type="password" id="passwordConfirmada" placeholder="Micontraseña32?!" required>
                         <i class="material-symbols-outlined">lock</i>
                         <p id="mensajePasswordConfirmada"></p>
                     </div>
                     <div class="formulario-contenedor linea">
-                        <button type="button" name="enviar" onclick="validarRegistro()" class="botones-enviar" id="registro">Registrar</button>
+                        <button type="button" name="agregar" onclick="validarRegistro()" class="botones-enviar" id="registro">Crear Usuario</button>
                         <button type="reset" class="botones-enviar borrar" id="borrar">Borrar</button>
                     </div>
-                    <!-- Fin del contenedor de inputs -->
+                    <!-- Fin del contenedor de input class="input"s -->
                 </form>
                 <!-- Fin del formulario -->
             </div>
