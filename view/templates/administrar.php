@@ -1,7 +1,9 @@
 <?php
+session_start();
 
-
-require_once "../../helpers/validacion-administrador.php";
+if($_SESSION["rol"] != "4"){
+    require_once "../../helpers/validacion-administrador.php";
+}
 require_once "../../helpers/validaciones.php";
 
 include "../../models/connection.php";
@@ -65,22 +67,26 @@ if($existen_datos)
                         <td><?= $usuario->getUsername()?></td>
                         <td><?= $usuario->getEmail()?></td>
                         <td><?= $usuario->getRol()?></td>
+                        <?php if($_SESSION["rol"] == 2 || $_SESSION["rol"] == 3): ?>
                         <td class="botones">
                             <a href="editar.php?id=<?= $usuario->getId(); ?>" class="update"><i class="material-symbols-outlined">settings</i></a>
                             <a href="../../controllers/eliminar-controller.php?id=<?= $usuario->getId() ?>" class="delete"><i class="material-symbols-outlined">delete</i></a>
                         </td>
+                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
         <?php else: ?>
             <h2 class="centrar-texto">No hay usuarios disponibles</h2>
-        <?php endif; ?>
-
+        <?php endif; 
+        
+        if($_SESSION["rol"] != 4): ?>
         <div class="creacion-de-usuario">
             <p>Deseas crear un nuevo usuario?</p>
             <a href="agregar-usuario.php">Crear nuevo usuario</a>
         </div>
+        <?php endif;?>
     </main>
     <!-- MI MODAL -->
     <div class="fondo-modal" id="cerrarModal">

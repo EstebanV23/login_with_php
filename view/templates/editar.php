@@ -59,7 +59,7 @@ if($existen_datos)
                     <div class="contenido-formulario-principal">
                         <label for="id">Id: </label>
                         <div class="contenido-logo-relative">
-                            <input class="input" type="text" value="<?= $usuario_seleccionado->getId() ?>" name="id" id="id" placeholder="id" disabled required autocomplete="off">
+                            <input class="input" type="text" value="<?= $usuario_seleccionado->getId() ?>" id="id" placeholder="id" disabled required autocomplete="off">
                             <i class="material-symbols-outlined">badge</i>
                         </div>
                     </div>

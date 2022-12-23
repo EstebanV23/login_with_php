@@ -20,14 +20,10 @@ class UsuarioDao extends Connection
     //Funcion para traer a todos los Usuarios
     public function listar_usuarios_disponibles($rol = 1)
     {
-        $query = "SELECT *  FROM tbl_usuario INNER JOIN tbl_rol ON tbl_usuario.usu_rol_id = tbl_rol.rol_id WHERE usu_est = 1";
+        $query = "SELECT *  FROM tbl_usuario INNER JOIN tbl_rol ON tbl_usuario.usu_rol_id = tbl_rol.rol_id WHERE usu_est = 1 AND usu_rol_id != 3";
 
         if($rol == 2){
-            $query = $query . " AND usu_rol_id != 2 AND usu_rol_id != 3";
-        }
-        
-        if ($rol == 3) {
-            $query = $query . " AND usu_rol_id != 3";
+            $query = $query . " AND usu_rol_id != 2";
         }
 
         $sql = mysqli_query($this->connected, $query);

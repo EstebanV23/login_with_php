@@ -2,6 +2,8 @@
 
 session_start();
 
+$sessiones_permitidas = [2, 3, 4];
+
 ?>
 <!-- Cabecero con navegacion -->
 <header class="navegacion">
@@ -14,7 +16,7 @@ session_start();
             <a href="../../controllers/cerrar-session-controller.php">Logout</a>
             <a href="./calculadora-aritmetica/index.php">Calculadora</a>
         <?php endif; 
-        if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 3):?>
+        if(in_array($_SESSION["rol"], $sessiones_permitidas)):?>
         <a href="./administrar.php">Administrar</a>
         <?php endif; ?>
     </nav>

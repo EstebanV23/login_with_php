@@ -16,6 +16,15 @@ if ($validacion_datos){
     $username = $_POST['username'];
     $rol = $_POST['rol'];
     $ruta_editar = "Location: ../view/templates/editar.php?id=$id";
+
+    if($rol == 3){
+        header("$ruta_editar&estado=fail&mensaje=Error, no se pueden crear superusuarios");
+    }
+
+    if($rol == 2 && $_SESSION["rol"] != 3){
+        header("$ruta_editar&estado=fail&mensaje=Error, no tienes permiso para crear este usuario");
+    }
+
     require_once "../daos/usuario-dao.php";
     
     $instancia_usuario_dao = new UsuarioDao();

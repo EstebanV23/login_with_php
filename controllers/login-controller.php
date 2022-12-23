@@ -31,6 +31,7 @@ if($entradas_con_datos && isset($_POST['envio'])){
             $_SESSION['username'] = $username;
             $_SESSION['rol'] = $datos_user['usu_rol_id'];
             $_SESSION['estado'] = $datos_user['usu_est'];
+            $_SESSION['nombre'] = $datos_user['usu_nom'];
             header("Location: ../view/templates/home.php");
         }else{
             redireccionar($ruta_login, "", "Contraseña incorrecta");
