@@ -2,6 +2,11 @@
 
 include("../helpers/errores.php"); //Incluimos nuestro archivo con la clase de validaciones de errores
 
+// Función para el redireccionamiento 
+function redireccionar(string $ruta, string $estado, string $mensaje) : void{
+    header("Location: $ruta?estado=$estado&mensaje=$mensaje");
+}
+
 $validaciones_errores = new ValidacionErrores(); //Instanciamos nuestra clase de validaciones de errores
 $ruta_registro = "/view/templates/registro.php"; //Configuramos la ruta de nuestra vista de registro
 // Ejecutamos la funcion de nuestra clase instanciado
@@ -37,10 +42,5 @@ if($estado === "success"){
     }
 }else{
     redireccionar($ruta_registro, $estado, $mensaje);
-}
-
-// Función para el redireccionamiento 
-function redireccionar(string $ruta, string $estado, string $mensaje) : void{
-    header("Location: $ruta?estado=$estado&mensaje=$mensaje");
 }
 

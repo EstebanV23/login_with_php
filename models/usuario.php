@@ -13,15 +13,12 @@ class Usuario{
     public function __construct(...$args)
     {
         if (isset($args) & !empty($args)) {
-            list($nombre, $apellido, $email, $username, $password, $id, $estado, $rol) = $args;
+            list($nombre, $apellido, $email, $username, $password) = $args;
             $this->nombre = $nombre;
             $this->apellido = $apellido;
             $this->email = $email;
             $this->username = $username;
             $this->password = $password;
-            $this->id = $id;
-            $this->estado = $estado;
-            $this->rol = $rol;
         }
     }
 
