@@ -26,7 +26,9 @@ if($validacion->validarEntradas($_GET['id'])){
 $mensaje = "none";
 $estado = "none";
 
-$existen_datos = $validacion->validarEntradas($_GET["estado"], $_GET["mensaje"]);
+if (isset($_GET["estado"])) {
+    $existen_datos = $validacion->validarEntradas($_GET["estado"], $_GET["mensaje"]);
+}
 
 if($existen_datos) 
 {

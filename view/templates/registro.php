@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include "../../helpers/validaciones.php";
 
 $validacion = new Validaciones();
@@ -7,9 +9,11 @@ $validacion = new Validaciones();
 $mensaje = "none";
 $estado = "none";
 
-$existen_datos = $validacion->validarEntradas($_GET["estado"], $_GET["mensaje"]);
+if (isset($_GET["estado"])) {
+    $existen_datos = $validacion->validarEntradas($_GET["estado"], $_GET["mensaje"]);
+}
 
-if($existen_datos) 
+if(isset($existen_datos)) 
 {
     list($estado, $mensaje) = array_values($_GET);
 }
