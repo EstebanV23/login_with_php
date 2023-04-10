@@ -46,7 +46,7 @@ if (isset($validacion_datos)){
     }else{
         $datos_actualizados = $instancia_usuario_dao->actualizar_usuario($nombre, $apellido, $email, $username, $rol, $id);
         if($datos_actualizados){
-            header("$ruta_editar&estado=success&mensaje=Los%datos%se%han%actualizado%correctamente");
+            header("$ruta_editar&estado=success&mensaje=Los%20datos%20se%20han%20actualizado%20correctamente");
         }else{
             header("$ruta_editar&estado=fail&mensaje=Error inesperado");
         }

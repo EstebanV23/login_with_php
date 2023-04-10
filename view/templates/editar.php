@@ -30,7 +30,7 @@ if (isset($_GET["estado"])) {
     $existen_datos = $validacion->validarEntradas($_GET["estado"], $_GET["mensaje"]);
 }
 
-if($existen_datos) 
+if(isset($existen_datos)) 
 {
     $estado = $_GET["estado"];
     $mensaje = $_GET["mensaje"];
