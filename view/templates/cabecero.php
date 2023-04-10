@@ -17,7 +17,7 @@ $sessiones_permitidas = [2, 3, 4];
             <a href="/controllers/cerrar-session-controller.php">Logout</a>
             <a href="calculadora-aritmetica/index.php">Calculadora</a>
         <?php endif; 
-        if(!isset($_SESSION["rol"]) && in_array($_SESSION["rol"], $sessiones_permitidas)):?>
+        if(isset($_SESSION["rol"]) && in_array($_SESSION["rol"], $sessiones_permitidas)): ?>
         <a href="./administrar.php">Administrar</a>
         <?php endif; ?>
     </nav>
