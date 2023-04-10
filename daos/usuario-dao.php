@@ -1,7 +1,7 @@
 <?php
 
-include("../models/connection.php");
-include("../models/usuario.php");
+include("/models/connection.php");
+include("/models/usuario.php");
 
 class UsuarioDao extends Connection
 {
