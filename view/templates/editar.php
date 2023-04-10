@@ -1,17 +1,17 @@
 <?php
 
-require("/helpers/validacion-administrador.php");
-require("/helpers/validaciones.php");
+require("../../helpers/validacion-administrador.php");
+require("../../helpers/validaciones.php");
 $ruta_administrador = "Location: administrar.php";
 
 $validacion = new Validaciones();
 
 if($validacion->validarEntradas($_GET['id'])){
-    include("/models/connection.php");
-    include("/models/usuario.php");
-    include("/models/rol.php");
-    include("/daos/usuario-dao.php");
-    include("/daos/rol-dao.php");
+    include("../../models/connection.php");
+    include("../../models/usuario.php");
+    include("../../models/rol.php");
+    include("../../daos/usuario-dao.php");
+    include("../../daos/rol-dao.php");
     $id = $_GET['id'];
     
     $instancia_usuario_dao = new UsuarioDao();

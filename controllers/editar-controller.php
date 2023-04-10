@@ -1,14 +1,19 @@
 <?php 
 
-require_once("/helpers/validacion-administrador.php");
-require_once("/helpers/validaciones.php");
+include("../models/connection.php");
+include("../models/usuario.php");
+require_once("../helpers/validacion-administrador.php");
+require_once("../helpers/validaciones.php");
 $ruta_login = "Location: /view/templates/login.php";
 
 $validaciones = new Validaciones();
 
-$validacion_datos = $validaciones->validarEntradas($_POST['nombre'], $_POST['id'], $_POST['apellido'], $_POST['email'], $_POST['username'], $_POST['rol'], $_POST['editor']);
+if (isset($_POST)) {
+    $validacion_datos = $validaciones->validarEntradas($_POST['nombre'], $_POST['id'], $_POST['apellido'], $_POST['email'], $_POST['username'], $_POST['rol'], $_POST['editor']);
+}
+
 ver_errores($_POST);
-if ($validacion_datos){
+if (isset($validacion_datos)){
     $nombre = $_POST['nombre'];
     $id = $_POST['id'];
     $apellido = $_POST['apellido'];
@@ -25,7 +30,7 @@ if ($validacion_datos){
         header("$ruta_editar&estado=fail&mensaje=Error, no tienes permiso para crear este usuario");
     }
 
-    require_once("/daos/usuario-dao.php");
+    require_once("../daos/usuario-dao.php");
     
     $instancia_usuario_dao = new UsuarioDao();
     $verificar_usuario = $instancia_usuario_dao->listar_username_user($username);

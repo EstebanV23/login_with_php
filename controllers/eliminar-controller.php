@@ -1,8 +1,10 @@
 <?php
 
-require_once("/helpers/validacion-administrador.php");
-require_once("/helpers/validaciones.php");
-require_once("/daos/usuario-dao.php");
+require_once("../helpers/validacion-administrador.php");
+require_once("../helpers/validaciones.php");
+include("../models/connection.php");
+include("../models/usuario.php");
+require_once("../daos/usuario-dao.php");
 
 $validaciones = new Validaciones();
 

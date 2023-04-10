@@ -10,17 +10,9 @@ class Usuario{
     protected $estado;
     protected $rol;
 
-    public function __construct(...$args)
+    public function __construct()
     {
-        list($nombre, $apellido, $email, $username, $password, $id, $estado, $rol) = $args;
-        $this->nombre = $nombre;
-        $this->apellido = $apellido;
-        $this->email = $email;
-        $this->username = $username;
-        $this->password = $password;
-        $this->id = $id;
-        $this->estado = $estado;
-        $this->rol = $rol;
+    
     }
 
     public function mostrar_datos()

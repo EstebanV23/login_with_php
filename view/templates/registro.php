@@ -1,6 +1,6 @@
 <?php
 
-include "/helpers/validaciones.php";
+include "../../helpers/validaciones.php";
 
 $validacion = new Validaciones();
 

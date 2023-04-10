@@ -18,9 +18,7 @@ $lista_usuarios = $nuevo_usuario_dao->listar_usuarios_disponibles($_SESSION['rol
 $mensaje = "none";
 $estado = "none";
 
-$existen_datos = $validacion->validarEntradas($_GET["estado"], $_GET["mensaje"]);
-
-if($existen_datos) 
+if(isset($_GET["estado"]) && isset($_GET["mensaje"]))
 {
     $estado = $_GET["estado"];
     $mensaje = $_GET["mensaje"];

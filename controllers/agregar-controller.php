@@ -1,8 +1,8 @@
 <?php
 
-require("/helpers/validacion-administrador.php");
-require("/helpers/errores.php");
-$ruta_agregar = "Location: ../view/templates/administrar.php";
+require("../helpers/validacion-administrador.php");
+require("../helpers/errores.php");
+$ruta_agregar = "Location: /view/templates/administrar.php";
 
 $instancia_errores = new ValidacionErrores();
 
@@ -13,7 +13,9 @@ if($estado != "success"){
     header("$ruta_agregar?estado=$estado&mensaje=$mensaje");
 }
 
-include("/daos/usuario-dao.php");
+include("../models/connection.php");
+include("../models/usuario.php");
+include("../daos/usuario-dao.php");
 $instancia_usuario_dao = new UsuarioDao();
 
 $nombre = $_POST['nombre'];

@@ -6,12 +6,7 @@ class Rol{
     protected $descripcion;
     protected $estado;
 
-    public function __construct(...$args){
-        list($nombre, $descripcion, $estado, $id) = $args;
-        $this->nombre = $nombre;
-        $this->descripcion = $descripcion;
-        $this->estado = $estado;
-        $this->id = $id;
+    public function __construct(){
     }
 
     public function getId(){

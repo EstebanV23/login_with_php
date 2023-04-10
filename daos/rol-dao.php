@@ -1,9 +1,5 @@
 <?php 
 
-
-include("/models/connection.php");
-include("/models/rol.php");
-
 class RolDao extends Connection
 {
     public function __construct()

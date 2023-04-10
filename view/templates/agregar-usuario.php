@@ -1,22 +1,23 @@
 <?php
 
-include("/helpers/validacion-administrador.php");
-include("/helpers/validaciones.php");
-include("/models/connection.php");
-include("/models/rol.php");
-include("/daos/rol-dao.php");
+include("../../helpers/validacion-administrador.php");
+include("../../helpers/validaciones.php");
+include("../../models/connection.php");
+include("../../models/rol.php");
+include("../../daos/rol-dao.php");
 
 $validacion = new Validaciones();
 $instancia_rol_dao = new RolDao();
 
 $mensaje = "none";
 $estado = "none";
-
-$existen_datos = $validacion->validarEntradas($_GET["estado"], $_GET["mensaje"]);
+if (isset($_GET["estado"]) && isset($_GET["mensaje"])) {
+    $existen_datos = $validacion->validarEntradas($_GET["estado"], $_GET["mensaje"]);
+}
 
 $roles_disponibles = $instancia_rol_dao->listar_todos_roles_disponibles($_SESSION['rol']);
 
-if($existen_datos) 
+if(isset($existen_datos)) 
 {
     list($estado, $mensaje) = array_values($_GET);
 }
@@ -50,7 +51,7 @@ if($existen_datos)
             <!-- Contendio de abajo con el formulario -->
             <div class="info-bottom">
                 <!-- Formulario -->
-                <formaction=($_SERVER['DOCUMENT_ROOT']."/controllers/agregar-controller.php" method="POST" class="bottom-formulario")>
+                <form action="/controllers/agregar-controller.php" method="POST" class="bottom-formulario">
                     <!-- Contendor de input class="input"s, estilos generales para todos -->
                     <!-- NOMBRE-->
                     <div class="formulario-contenedor">
@@ -110,7 +111,7 @@ if($existen_datos)
                         <button type="reset" class="botones-enviar borrar" id="borrar">Borrar</button>
                     </div>
                     <!-- Fin del contenedor de input class="input"s -->
-                </formaction=>
+                </form>
                 <!-- Fin del formulario -->
             </div>
             <!-- Find el contenedor abajo -->

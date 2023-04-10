@@ -19,6 +19,8 @@ if($entradas_con_datos && isset($_POST['envio'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    include("../models/connection.php");
+    include("../models/usuario.php");
     require_once ("../daos/usuario-dao.php"); //Traemos nuestro archivo dao que contiene las sentencias SQL
 
     $control_usuario = new UsuarioDao(); //Al instanciar creamos la conexion a la base de datos
