@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION["rol"] != "4"){
+if(!isset($_SESSION["rol"]) || $_SESSION["rol"] != "4"){
     require_once("../../helpers/validacion-administrador.php");
 }
 require_once("../../helpers/validaciones.php");
