@@ -28,7 +28,7 @@ if($estado === "success"){
     // Verificamos, con nuestra instancia de dao, si ya existe este usuario
     if($control->listar_username_user($username)->num_rows == 0){
         // Creamos un nuevo usuario con los datos que vienen en el POST
-        $usuario = new Usuario($nombre, $apellido, $email, $username, $password);
+        $usuario = new Usuario($nombre, $apellido, $email, $username, $password, null, null, null);
         // Con nuestra clase instanciada de dao, hacemos un insertar, pasandole como parametro un objeto Usuario
         $resultado_query = $control->insertar($usuario);
         // Verificamos la query, si fue correcta o no
