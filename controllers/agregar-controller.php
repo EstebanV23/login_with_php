@@ -1,7 +1,7 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT']."/helpers/validacion-administrador.php");
-require($_SERVER['DOCUMENT_ROOT']."/helpers/errores.php");
+require("/helpers/validacion-administrador.php");
+require("/helpers/errores.php");
 $ruta_agregar = "Location: ../view/templates/administrar.php";
 
 $instancia_errores = new ValidacionErrores();
@@ -13,7 +13,7 @@ if($estado != "success"){
     header("$ruta_agregar?estado=$estado&mensaje=$mensaje");
 }
 
-include($_SERVER['DOCUMENT_ROOT']."/daos/usuario-dao.php");
+include("/daos/usuario-dao.php");
 $instancia_usuario_dao = new UsuarioDao();
 
 $nombre = $_POST['nombre'];

@@ -1,7 +1,7 @@
 <?php
 
-include($_SERVER['DOCUMENT_ROOT']."/models/connection.php");
-include($_SERVER['DOCUMENT_ROOT']."/models/usuario.php");
+include("/models/connection.php");
+include("/models/usuario.php");
 
 class UsuarioDao extends Connection
 {

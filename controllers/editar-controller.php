@@ -1,8 +1,8 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT']."/helpers/validacion-administrador.php");
-require_once($_SERVER['DOCUMENT_ROOT']."/helpers/validaciones.php");
-$ruta_login = "Location: ../view/templates/login.php";
+require_once("/helpers/validacion-administrador.php");
+require_once("/helpers/validaciones.php");
+$ruta_login = "Location: /view/templates/login.php";
 
 $validaciones = new Validaciones();
 
@@ -15,7 +15,7 @@ if ($validacion_datos){
     $email = $_POST['email'];
     $username = $_POST['username'];
     $rol = $_POST['rol'];
-    $ruta_editar = "Location: ../view/templates/editar.php?id=$id";
+    $ruta_editar = "Location: /view/templates/editar.php?id=$id";
 
     if($rol == 3){
         header("$ruta_editar&estado=fail&mensaje=Error, no se pueden crear superusuarios");
@@ -25,7 +25,7 @@ if ($validacion_datos){
         header("$ruta_editar&estado=fail&mensaje=Error, no tienes permiso para crear este usuario");
     }
 
-    require_once($_SERVER['DOCUMENT_ROOT']."/daos/usuario-dao.php");
+    require_once("/daos/usuario-dao.php");
     
     $instancia_usuario_dao = new UsuarioDao();
     $verificar_usuario = $instancia_usuario_dao->listar_username_user($username);

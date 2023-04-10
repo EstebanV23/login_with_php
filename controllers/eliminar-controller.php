@@ -6,7 +6,7 @@ require_once("/daos/usuario-dao.php");
 
 $validaciones = new Validaciones();
 
-$ruta_administrador = "Location: ../view/templates/administrar.php";
+$ruta_administrador = "Location: /view/templates/administrar.php";
 
 if($validaciones->validarEntradas($_GET['id'])) {
     $nuevo_usuario_dao = new UsuarioDao();
@@ -19,7 +19,7 @@ if($validaciones->validarEntradas($_GET['id'])) {
         header("$ruta_administrador?estado=fail&mensaje=Error inesperado");
     }
 }else{
-    header("Location: ../view/templates/home.php");
+    header("Location: /view/templates/home.php");
 }
 
 

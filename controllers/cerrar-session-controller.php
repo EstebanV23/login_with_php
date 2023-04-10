@@ -2,6 +2,6 @@
 session_start();
 session_destroy();
 
-header("Location: ../view/templates/login.php");
+header("Location: /view/templates/login.php");
 
 ?>

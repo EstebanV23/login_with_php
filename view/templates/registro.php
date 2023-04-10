@@ -1,6 +1,6 @@
 <?php
 
-include "../../helpers/validaciones.php";
+include "/helpers/validaciones.php";
 
 $validacion = new Validaciones();
 
@@ -21,12 +21,12 @@ if($existen_datos)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../static/img/18961875.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/view/static/img/18961875.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/> 
-    <link rel="stylesheet" href="../static/css/normalize.css">
-    <link rel="stylesheet" href="../static/css/estilos-generales.css">
-    <link rel="stylesheet" href="../static/css/estilos-login.css">
-    <link rel="stylesheet" href="../static/css/estilos-registro.css">
+    <link rel="stylesheet" href="/view/static/css/normalize.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-generales.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-login.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-registro.css">
     <title>Registro</title>
 </head>
 <body class="background-principal">
@@ -44,7 +44,7 @@ if($existen_datos)
             </a>
             <div class="info-top">
                 <div class="top-imagen">
-                    <img src="../static/img/18961875.jpg" alt="Logo">
+                    <img src="/view/static/img/18961875.jpg" alt="Logo">
                 </div>
                 <h2 class="top-subtitulo">REGISTRO</h2>
             </div>
@@ -53,7 +53,7 @@ if($existen_datos)
             <!-- Contendio de abajo con el formulario -->
             <div class="info-bottom">
                 <!-- Formulario -->
-                <form action="../../controllers/registro-controller.php" method="POST" class="bottom-formulario">
+                <form action="/controllers/registro-controller.php" method="POST" class="bottom-formulario">
                     <!-- Contendor de inputs, estilos generales para todos -->
                     <!-- NOMBRE-->
                     <div class="formulario-contenedor">
@@ -121,9 +121,9 @@ if($existen_datos)
     <footer>
 
     </footer>
-    <script src="../static/js/funciones-validar.js"></script>
-    <script src="../static/js/validaciones.js"></script>
-    <script src="../static/js/validaciones-registro.js"></script>
+    <script src="/view/static/js/funciones-validar.js"></script>
+    <script src="/view/static/js/validaciones.js"></script>
+    <script src="/view/static/js/validaciones-registro.js"></script>
     <script>
         let estado = "<?php echo $estado; ?>";
         let mensaje = "<?php echo $mensaje; ?>";

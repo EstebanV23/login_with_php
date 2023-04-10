@@ -2,13 +2,13 @@
 session_start();
 
 if($_SESSION["rol"] != "4"){
-    require_once($_SERVER['DOCUMENT_ROOT']."/helpers/validacion-administrador.php");
+    require_once("/helpers/validacion-administrador.php");
 }
-require_once($_SERVER['DOCUMENT_ROOT']."/helpers/validaciones.php");
+require_once("/helpers/validaciones.php");
 
-include($_SERVER['DOCUMENT_ROOT']."/models/connection.php");
-include($_SERVER['DOCUMENT_ROOT']."/models/usuario.php");
-include($_SERVER['DOCUMENT_ROOT']."/daos/usuario-dao.php");
+include("/models/connection.php");
+include("/models/usuario.php");
+include("/daos/usuario-dao.php");
 
 $nuevo_usuario_dao = new UsuarioDao();
 $validacion = new Validaciones();
@@ -35,15 +35,15 @@ if($existen_datos)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="shortcut icon" href="../static/img/18961875.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/view/static/img/18961875.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <link rel="stylesheet" href="../static/css/normalize.css">
-    <link rel="stylesheet" href="../static/css/estilos-generales.css">
-    <link rel="stylesheet" href="../static/css/estilos-administrar.css">
+    <link rel="stylesheet" href="/view/static/css/normalize.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-generales.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-administrar.css">
     <title>Administrar</title>
 </head>
 <body>
-    <?php include_once "./cabecero.php"; ?>
+    <?php include_once "cabecero.php"; ?>
     <!-- Contenido principal con toda la info -->
     <main class="centrar">
         <h1 class="bienvenida">BIENVENIDO <span><?= $_SESSION['username'] ?></span></h1>
@@ -70,7 +70,7 @@ if($existen_datos)
                         <?php if($_SESSION["rol"] == 2 || $_SESSION["rol"] == 3): ?>
                         <td class="botones">
                             <a href="editar.php?id=<?= $usuario->getId(); ?>" class="update"><i class="material-symbols-outlined">settings</i></a>
-                            <ahref=($_SERVER['DOCUMENT_ROOT']."/controllers/eliminar-controller.php?id=<?= $usuario->getId() ?>" class="delete"><i class="material-symbols-outlined">delete</i></a)>
+                            <a href="/controllers/eliminar-controller.php?id=<?= $usuario->getId() ?>" class="delete"><i class="material-symbols-outlined">delete</i></a>
                         </td>
                         <?php endif; ?>
                     </tr>

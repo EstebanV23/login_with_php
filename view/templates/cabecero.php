@@ -13,8 +13,8 @@ $sessiones_permitidas = [2, 3, 4];
         <?php if(!isset($_SESSION['username'])): ?>
             <a href="login.php">Login</a>
         <?php else: ?>
-            <a href="../../controllers/cerrar-session-controller.php">Logout</a>
-            <a href="./calculadora-aritmetica/index.php">Calculadora</a>
+            <a href="/controllers/cerrar-session-controller.php">Logout</a>
+            <a href="calculadora-aritmetica/index.php">Calculadora</a>
         <?php endif; 
         if(in_array($_SESSION["rol"], $sessiones_permitidas)):?>
         <a href="./administrar.php">Administrar</a>

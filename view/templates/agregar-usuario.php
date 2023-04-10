@@ -1,10 +1,10 @@
 <?php
 
-include($_SERVER['DOCUMENT_ROOT']."/helpers/validacion-administrador.php");
-include($_SERVER['DOCUMENT_ROOT']."/helpers/validaciones.php");
-include($_SERVER['DOCUMENT_ROOT']."/models/connection.php");
-include($_SERVER['DOCUMENT_ROOT']."/models/rol.php");
-include($_SERVER['DOCUMENT_ROOT']."/daos/rol-dao.php");
+include("/helpers/validacion-administrador.php");
+include("/helpers/validaciones.php");
+include("/models/connection.php");
+include("/models/rol.php");
+include("/daos/rol-dao.php");
 
 $validacion = new Validaciones();
 $instancia_rol_dao = new RolDao();
@@ -28,13 +28,13 @@ if($existen_datos)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../static/img/18961875.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/view/static/img/18961875.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/> 
-    <link rel="stylesheet" href="../static/css/normalize.css">
-    <link rel="stylesheet" href="../static/css/estilos-generales.css">
-    <link rel="stylesheet" href="../static/css/estilos-login.css">
-    <link rel="stylesheet" href="../static/css/estilos-registro.css">
-    <link rel="stylesheet" href="../static/css/estilos-agregar.css">
+    <link rel="stylesheet" href="/view/static/css/normalize.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-generales.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-login.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-registro.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-agregar.css">
     <title>Nuevo Usuario</title>
 </head>
 <body>
@@ -128,9 +128,9 @@ if($existen_datos)
     <footer>
 
     </footer>
-    <script src="../static/js/funciones-validar.js"></script>
-    <script src="../static/js/validaciones.js"></script>
-    <script src="../static/js/validaciones-registro.js"></script>
+    <script src="/view/static/js/funciones-validar.js"></script>
+    <script src="/view/static/js/validaciones.js"></script>
+    <script src="/view/static/js/validaciones-registro.js"></script>
     <script>
         let estado = "<?php echo $estado; ?>";
         let mensaje = "<?php echo $mensaje; ?>";

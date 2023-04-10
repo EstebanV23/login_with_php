@@ -17,11 +17,11 @@ $mensaje_password = $_GET['mensaje_password'] ?? '';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../static/img/18961875.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/view/static/img/18961875.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/> 
-    <link rel="stylesheet" href="../static/css/normalize.css">
-    <link rel="stylesheet" href="../static/css/estilos-generales.css">
-    <link rel="stylesheet" href="../static/css/estilos-login.css">
+    <link rel="stylesheet" href="/view/static/css/normalize.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-generales.css">
+    <link rel="stylesheet" href="/view/static/css/estilos-login.css">
     <title>Login</title>
 </head>
 <body class="background-principal">
@@ -35,7 +35,7 @@ $mensaje_password = $_GET['mensaje_password'] ?? '';
             <!-- Contenido arriba con imagen y un subtitulo -->
             <div class="info-top">
                 <div class="top-imagen">
-                    <img src="../static/img/18961875.jpg" alt="Logo">
+                    <img src="/view/static/img/18961875.jpg" alt="Logo">
                 </div>
                 <h2 class="top-subtitulo">LOGIN</h2>
             </div>
@@ -44,7 +44,7 @@ $mensaje_password = $_GET['mensaje_password'] ?? '';
             <!-- Contendio de abajo con el formulario -->
             <div class="info-bottom">
                 <!-- Formulario -->
-                <form action="../../controllers/login-controller.php" class="bottom-formulario" method="POST">
+                <form action="/controllers/login-controller.php" class="bottom-formulario" method="POST">
                     <!-- Contendor de inputs, estilos generales para todos -->
                     <!-- NOMBRE DE USUARIO -->
                     <div class="formulario-contenedor">
@@ -80,7 +80,7 @@ $mensaje_password = $_GET['mensaje_password'] ?? '';
     <footer>
 
     </footer>
-    <script src="../static/js/funciones-validar.js"></script>
-    <script src="../static/js/validaciones.js"></script>
+    <script src="/view/static/js/funciones-validar.js"></script>
+    <script src="/view/static/js/validaciones.js"></script>
 </body>
 </html>

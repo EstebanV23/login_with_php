@@ -2,11 +2,13 @@
 
 session_start();
 /* traer nuestros helpers para validaciones */
-require_once ($_SERVER['DOCUMENT_ROOT']."/helpers/validaciones.php");
+require_once "/helpers/validaciones.php";
 
 $mis_validaciones = new Validaciones();
 
-$ruta_login = ($_SERVER['DOCUMENT_ROOT']."/view/templates/login.php"); //Configuramos la ruta relativa
+$ruta_login = "/view/templates/login.php"; //Configuramos la ruta relativa
+
+pritn_r($ruta_login);
 
 $entradas_con_datos = $mis_validaciones->validarEntradas($_POST['username'], $_POST['password']); //Guardamos el resultado de la funcion, la cual nos devuelve true o false dependiendo de los datos pasados por parametros
 
@@ -16,7 +18,7 @@ if($entradas_con_datos && isset($_POST['envio'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    require_once ($_SERVER['DOCUMENT_ROOT']."/daos/usuario-dao.php"); //Traemos nuestro archivo dao que contiene las sentencias SQL
+    require_once ("/daos/usuario-dao.php"); //Traemos nuestro archivo dao que contiene las sentencias SQL
 
     $control_usuario = new UsuarioDao(); //Al instanciar creamos la conexion a la base de datos
 
@@ -32,7 +34,9 @@ if($entradas_con_datos && isset($_POST['envio'])){
             $_SESSION['rol'] = $datos_user['usu_rol_id'];
             $_SESSION['estado'] = $datos_user['usu_est'];
             $_SESSION['nombre'] = $datos_user['usu_nom'];
-            header("Location: ../view/templates/home.php");
+            print_r($_SESSION);
+
+            header("Location: /view/templates/home.php");
         }else{
             redireccionar($ruta_login, "", "Contraseña incorrecta");
         }
