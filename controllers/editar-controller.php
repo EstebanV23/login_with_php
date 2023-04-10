@@ -23,11 +23,11 @@ if (isset($validacion_datos)){
     $ruta_editar = "Location: /view/templates/editar.php?id=$id";
 
     if($rol == 3){
-        header("$ruta_editar&estado=fail&mensaje=Error, no se pueden crear superusuarios");
+        header("Location: $ruta_editar&estado=fail&mensaje=Error, no se pueden crear superusuarios");
     }
 
     if($rol == 2 && $_SESSION["rol"] != 3){
-        header("$ruta_editar&estado=fail&mensaje=Error, no tienes permiso para crear este usuario");
+        header("Location: $ruta_editar&estado=fail&mensaje=Error, no tienes permiso para crear este usuario");
     }
 
     require_once("../daos/usuario-dao.php");
@@ -42,19 +42,19 @@ if (isset($validacion_datos)){
     }
 
     if ($existe_username){
-        header("$ruta_editar&estado=fail&mensaje=El nombre de usuario ya existe");
+        header("Location: $ruta_editar&estado=fail&mensaje=El nombre de usuario ya existe");
     }else{
         $datos_actualizados = $instancia_usuario_dao->actualizar_usuario($nombre, $apellido, $email, $username, $rol, $id);
         if($datos_actualizados){
-            header("$ruta_editar&estado=success&mensaje=Los%20datos%20se%20han%20actualizado%20correctamente");
+            header("Location: $ruta_editar&estado=success&mensaje=Los%20datos%20se%20han%20actualizado%20correctamente");
         }else{
-            header("$ruta_editar&estado=fail&mensaje=Error inesperado");
+            header("Location: $ruta_editar&estado=fail&mensaje=Error inesperado");
         }
     }
 
 }else{
     session_destroy();
-    header($ruta_login);
+    header("Location: $ruta_login");
 }
 
 

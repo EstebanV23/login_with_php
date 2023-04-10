@@ -20,7 +20,7 @@ if($validacion->validarEntradas($_GET['id'])){
     $usuario_seleccionado = $instancia_usuario_dao->listar_usuario_por_id($_GET['id']);
     $roles_disponibles = $instancia_rol_dao->listar_todos_roles_disponibles($_SESSION['rol']);
 }else{
-    header($ruta_administrador);
+    header("Location: $ruta_administrador");
 }
 
 $mensaje = "none";

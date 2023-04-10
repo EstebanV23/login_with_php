@@ -16,9 +16,9 @@ if($validaciones->validarEntradas($_GET['id'])) {
     $eliminado = $nuevo_usuario_dao->desactivar_usuario($_GET['id']);
 
     if($eliminado){
-        header("$ruta_administrador?estado=success&mensaje=Se ha eliminado correctamente");
+        header("Location: $ruta_administrador?estado=success&mensaje=Se ha eliminado correctamente");
     }else{
-        header("$ruta_administrador?estado=fail&mensaje=Error inesperado");
+        header("Location: $ruta_administrador?estado=fail&mensaje=Error inesperado");
     }
 }else{
     header("Location: /view/templates/home.php");

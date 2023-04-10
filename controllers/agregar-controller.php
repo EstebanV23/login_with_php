@@ -34,7 +34,7 @@ if ($resultado_query!==true) {
     $mensaje = "Error inesperado";
 }
 
-header("$ruta_agregar?estado=$estado&mensaje=$mensaje");
+header("Location: $ruta_agregar?estado=$estado&mensaje=$mensaje");
 
 
 ?>

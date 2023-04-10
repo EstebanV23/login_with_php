@@ -66,7 +66,7 @@ class UsuarioDao extends Connection
         //Retornamos la query para saber si retorna filas
         $lista_usuarios = [];
         
-        $usuario = new Usuario();
+    $usuario = new Usuario();
          //Creamos un nuevo objeto Usuario
         if($sql->num_rows > 0){
             $row = mysqli_fetch_array($sql);
