@@ -11,7 +11,7 @@ list($estado, $mensaje) = $validaciones_errores->validacion_errores('', [[$_POST
 if($estado === "success"){
     include_once("../daos/usuario-dao.php"); //Incluimos nuestro dao, donde haremos las sentencias SQL
     include_once("../models/usuario.php"); //Incluimos nuesto modelo, para poder enviarselo a nuestro Dao
-    include_once("../models/connetion.php"); //Incluimos nuesto modelo, para poder enviarselo a nuestro Dao
+    include_once("../models/connection.php"); //Incluimos nuesto modelo, para poder enviarselo a nuestro Dao
     $control = new UsuarioDao(); //Instanciamos el dao, este hace la conexion a la base de datos en su constructor, y tiene funciones para implementar sentencias SQL
     // Restacamos las variables del $_POST
     $nombre  = $_POST["nombre"];
