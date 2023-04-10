@@ -9,9 +9,9 @@ $sessiones_permitidas = [2, 3, 4];
 <header class="navegacion">
     <!-- Navegacion -->
     <nav class="navegacion-contenido">
-        <a href="./home.php">Home</a>
+        <a href="home.php">Home</a>
         <?php if(!isset($_SESSION['username'])): ?>
-            <a href="./login.php">Login</a>
+            <a href="login.php">Login</a>
         <?php else: ?>
             <a href="../../controllers/cerrar-session-controller.php">Logout</a>
             <a href="./calculadora-aritmetica/index.php">Calculadora</a>

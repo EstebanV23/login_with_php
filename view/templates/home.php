@@ -19,7 +19,7 @@ session_start();
     <title>Home</title>
 </head>
 <body>
-    <?php include_once "./cabecero.php"; ?>
+    <?php include_once "cabecero.php"; ?>
     <!-- Contenido principal con toda la info -->
     <main class="centrar">
         <div class="banner">
