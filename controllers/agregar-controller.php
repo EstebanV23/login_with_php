@@ -11,6 +11,7 @@ list($estado, $mensaje) = $instancia_errores->validacion_errores($_POST['agregar
 
 if($estado != "success"){
     header("$ruta_agregar?estado=$estado&mensaje=$mensaje");
+    die();
 }
 
 include("../models/connection.php");
@@ -35,6 +36,7 @@ if ($resultado_query!==true) {
 }
 
 header("Location: $ruta_agregar?estado=$estado&mensaje=$mensaje");
+die();
 
 
 ?>

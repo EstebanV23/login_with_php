@@ -39,6 +39,7 @@ if($entradas_con_datos && isset($_POST['envio'])){
             $_SESSION['nombre'] = $datos_user['usu_nom'];
 
             header("Location: /view/templates/home.php");
+            die();
         }else{
             redireccionar($ruta_login, "", "Contraseña incorrecta");
         }
@@ -52,8 +53,10 @@ function redireccionar(string $ruta, string $mensaje_username = '', string $mens
     /* Si los datos no vienen vacios redireccionar al login con variables */
     if(!empty($mensaje_username) || !empty($mensaje_password)){
         header("Location: $ruta?mensaje_username=$mensaje_username&mensaje_password=$mensaje_password");
+        die();
     }else{
         header("Location: $ruta"); //Redirecciona si los datos son vacios
+        die();
     }
 
 }

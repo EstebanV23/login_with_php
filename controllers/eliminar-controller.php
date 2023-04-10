@@ -17,11 +17,14 @@ if($validaciones->validarEntradas($_GET['id'])) {
 
     if($eliminado){
         header("Location: $ruta_administrador?estado=success&mensaje=Se ha eliminado correctamente");
+        die();
     }else{
         header("Location: $ruta_administrador?estado=fail&mensaje=Error inesperado");
+        die();
     }
 }else{
     header("Location: /view/templates/home.php");
+    die();
 }
 
 

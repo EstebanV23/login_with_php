@@ -21,6 +21,7 @@ if($validacion->validarEntradas($_GET['id'])){
     $roles_disponibles = $instancia_rol_dao->listar_todos_roles_disponibles($_SESSION['rol']);
 }else{
     header("Location: $ruta_administrador");
+    die();
 }
 
 $mensaje = "none";

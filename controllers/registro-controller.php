@@ -5,6 +5,7 @@ include("../helpers/errores.php"); //Incluimos nuestro archivo con la clase de v
 // Función para el redireccionamiento 
 function redireccionar(string $ruta, string $estado, string $mensaje) : void{
     header("Location: $ruta?estado=$estado&mensaje=$mensaje");
+    die();
 }
 
 $validaciones_errores = new ValidacionErrores(); //Instanciamos nuestra clase de validaciones de errores
