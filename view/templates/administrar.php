@@ -2,13 +2,13 @@
 session_start();
 
 if($_SESSION["rol"] != "4"){
-    require_once "../../helpers/validacion-administrador.php";
+    require_once($_SERVER['DOCUMENT_ROOT']."/helpers/validacion-administrador.php");
 }
-require_once "../../helpers/validaciones.php";
+require_once($_SERVER['DOCUMENT_ROOT']."/helpers/validaciones.php");
 
-include "../../models/connection.php";
-include "../../models/usuario.php";
-include "../../daos/usuario-dao.php";
+include($_SERVER['DOCUMENT_ROOT']."/models/connection.php");
+include($_SERVER['DOCUMENT_ROOT']."/models/usuario.php");
+include($_SERVER['DOCUMENT_ROOT']."/daos/usuario-dao.php");
 
 $nuevo_usuario_dao = new UsuarioDao();
 $validacion = new Validaciones();
@@ -70,7 +70,7 @@ if($existen_datos)
                         <?php if($_SESSION["rol"] == 2 || $_SESSION["rol"] == 3): ?>
                         <td class="botones">
                             <a href="editar.php?id=<?= $usuario->getId(); ?>" class="update"><i class="material-symbols-outlined">settings</i></a>
-                            <a href="../../controllers/eliminar-controller.php?id=<?= $usuario->getId() ?>" class="delete"><i class="material-symbols-outlined">delete</i></a>
+                            <ahref=($_SERVER['DOCUMENT_ROOT']."/controllers/eliminar-controller.php?id=<?= $usuario->getId() ?>" class="delete"><i class="material-symbols-outlined">delete</i></a)>
                         </td>
                         <?php endif; ?>
                     </tr>

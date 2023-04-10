@@ -1,8 +1,8 @@
 <?php 
 
 
-include "../models/connection.php";
-include "../models/rol.php";
+include($_SERVER['DOCUMENT_ROOT']."/models/connection.php");
+include($_SERVER['DOCUMENT_ROOT']."/models/rol.php");
 
 class RolDao extends Connection
 {

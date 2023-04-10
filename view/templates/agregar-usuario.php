@@ -1,10 +1,10 @@
 <?php
 
-include "../../helpers/validacion-administrador.php";
-include "../../helpers/validaciones.php";
-include "../../models/connection.php";
-include "../../models/rol.php";
-include "../../daos/rol-dao.php";
+include($_SERVER['DOCUMENT_ROOT']."/helpers/validacion-administrador.php");
+include($_SERVER['DOCUMENT_ROOT']."/helpers/validaciones.php");
+include($_SERVER['DOCUMENT_ROOT']."/models/connection.php");
+include($_SERVER['DOCUMENT_ROOT']."/models/rol.php");
+include($_SERVER['DOCUMENT_ROOT']."/daos/rol-dao.php");
 
 $validacion = new Validaciones();
 $instancia_rol_dao = new RolDao();
@@ -50,7 +50,7 @@ if($existen_datos)
             <!-- Contendio de abajo con el formulario -->
             <div class="info-bottom">
                 <!-- Formulario -->
-                <form action="../../controllers/agregar-controller.php" method="POST" class="bottom-formulario">
+                <formaction=($_SERVER['DOCUMENT_ROOT']."/controllers/agregar-controller.php" method="POST" class="bottom-formulario")>
                     <!-- Contendor de input class="input"s, estilos generales para todos -->
                     <!-- NOMBRE-->
                     <div class="formulario-contenedor">
@@ -110,7 +110,7 @@ if($existen_datos)
                         <button type="reset" class="botones-enviar borrar" id="borrar">Borrar</button>
                     </div>
                     <!-- Fin del contenedor de input class="input"s -->
-                </form>
+                </formaction=>
                 <!-- Fin del formulario -->
             </div>
             <!-- Find el contenedor abajo -->

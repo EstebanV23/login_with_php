@@ -1,7 +1,7 @@
 <?php 
 
-require_once "../helpers/validacion-administrador.php";
-require_once "../helpers/validaciones.php";
+require_once($_SERVER['DOCUMENT_ROOT']."/helpers/validacion-administrador.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/helpers/validaciones.php");
 $ruta_login = "Location: ../view/templates/login.php";
 
 $validaciones = new Validaciones();
@@ -25,7 +25,7 @@ if ($validacion_datos){
         header("$ruta_editar&estado=fail&mensaje=Error, no tienes permiso para crear este usuario");
     }
 
-    require_once "../daos/usuario-dao.php";
+    require_once($_SERVER['DOCUMENT_ROOT']."/daos/usuario-dao.php");
     
     $instancia_usuario_dao = new UsuarioDao();
     $verificar_usuario = $instancia_usuario_dao->listar_username_user($username);

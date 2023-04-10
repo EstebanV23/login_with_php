@@ -1,16 +1,16 @@
 <?php
 
-include "../helpers/errores.php"; //Incluimos nuestro archivo con la clase de validaciones de errores
+include($_SERVER['DOCUMENT_ROOT']."/helpers/errores.php"); //Incluimos nuestro archivo con la clase de validaciones de errores
 
 $validaciones_errores = new ValidacionErrores(); //Instanciamos nuestra clase de validaciones de errores
-$ruta_registro = "../view/templates/registro.php"; //Configuramos la ruta de nuestra vista de registro
+$ruta_registro = ($_SERVER['DOCUMENT_ROOT']."/view/templates/registro.php"); //Configuramos la ruta de nuestra vista de registro
 // Ejecutamos la funcion de nuestra clase instanciado
 list($estado, $mensaje) = $validaciones_errores->validacion_errores('', [[$_POST['nombre'], 50], [$_POST['apellido'], 50], [$_POST['email'], 100], [$_POST['username'], 50], [$_POST['password'], 50]]); //Descomponemos la respuesta que nos arroja esta funcion, que es un array
 
 
 if($estado === "success"){
-    include_once "../daos/usuario-dao.php"; //Incluimos nuestro dao, donde haremos las sentencias SQL
-    include_once "../models/usuario.php"; //Incluimos nuesto modelo, para poder enviarselo a nuestro Dao
+    include_once($_SERVER['DOCUMENT_ROOT']."/daos/usuario-dao.php"); //Incluimos nuestro dao, donde haremos las sentencias SQL
+    include_once($_SERVER['DOCUMENT_ROOT']."/models/usuario.php"); //Incluimos nuesto modelo, para poder enviarselo a nuestro Dao
     $control = new UsuarioDao(); //Instanciamos el dao, este hace la conexion a la base de datos en su constructor, y tiene funciones para implementar sentencias SQL
     // Restacamos las variables del $_POST
     $nombre  = $_POST["nombre"];
