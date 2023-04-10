@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 /* traer nuestros helpers para validaciones */
 require_once("../helpers/validaciones.php");
 
@@ -33,7 +35,6 @@ if($entradas_con_datos && isset($_POST['envio'])){
             $_SESSION['rol'] = $datos_user['usu_rol_id'];
             $_SESSION['estado'] = $datos_user['usu_est'];
             $_SESSION['nombre'] = $datos_user['usu_nom'];
-            print_r($_SESSION);
 
             header("Location: /view/templates/home.php");
         }else{

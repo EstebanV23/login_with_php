@@ -2,13 +2,13 @@
 session_start();
 
 if($_SESSION["rol"] != "4"){
-    require_once("/helpers/validacion-administrador.php");
+    require_once("../../helpers/validacion-administrador.php");
 }
-require_once("/helpers/validaciones.php");
+require_once("../../helpers/validaciones.php");
 
-include("/models/connection.php");
-include("/models/usuario.php");
-include("/daos/usuario-dao.php");
+include("../../models/connection.php");
+include("../../models/usuario.php");
+include("../../daos/usuario-dao.php");
 
 $nuevo_usuario_dao = new UsuarioDao();
 $validacion = new Validaciones();
