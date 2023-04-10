@@ -1,6 +1,7 @@
 <?php 
-
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 $sessiones_permitidas = [2, 3, 4];
 
